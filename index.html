@@ -64,7 +64,7 @@
 
             this.load.image('dot', 'assets/dot.png');
             this.load.image('tiles', 'assets/pacman-tiles.png');
-            this.load.spritesheet('pegasos', 'assets/pegasos.jpg', 50, 50);
+            this.load.spritesheet('olaf', 'assets/olaf.jpg', 50, 50);
             this.load.tilemap('map', 'assets/pacman-map1.json', null, Phaser.Tilemap.TILED_JSON);
 
             //  Needless to say, graphics (C)opyright Namco
@@ -76,7 +76,7 @@
             this.map = this.add.tilemap('map');
             this.map.addTilesetImage('pacman-tiles', 'tiles');
 
-            this.layer = this.map.createLayer('Pacman');
+            this.layer = this.map.createLayer('olaf');
 
             this.dots = this.add.physicsGroup();
 
