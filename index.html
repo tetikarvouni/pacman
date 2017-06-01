@@ -61,7 +61,7 @@
             this.load.spritesheet('elsa', 'assets/elsa.png', 29, 29);
             this.load.tilemap('map', 'assets/pacman-map12.json', null, Phaser.Tilemap.TILED_JSON);
 	    this.load.image('coin','assets/coin.jpg');
-          
+            
             //  Needless to say, graphics (C)opyright Namco
         },
         create: function () {
@@ -71,13 +71,12 @@
 		
             this.dots = this.add.physicsGroup();
             this.coins = this.add.physicsGroup();
-	   
+	    
 		
 		
             this.map.createFromTiles(7, this.safetile, 'bot3', this.layer, this.dots);
             this.map.createFromTiles(35, this.safetile, 'coin', this.layer, this.coins);
-	  
-		
+	 
             //  The dots will need to be offset by 6px to put them back in the middle of the grid
             this.dots.setAll('x', 6, false, false, 1);
             this.dots.setAll('y', 6, false, false, 1);
@@ -102,10 +101,10 @@
             this.pacman.play('munch');
             this.move(Phaser.LEFT);
 		
-	    this.bonusText = game.add.text(350, 500, 'Bonus: 0', { fontSize: '20px Arial', fill: 'orange' });
+	    this.bonusText = game.add.text(350, 500, 'Bonus: 0', { fontSize: '20px Arial', fill: 'white' });
             
             
-            this.scoreText = game.add.text(0, 500, 'Score: 0', { fontSize: '20px Arial', fill: 'yellow' });
+            this.scoreText = game.add.text(0, 500, 'Score: 0', { fontSize: '20px Arial', fill: 'white' });
             
             lives = game.add.group();
             game.add.text(game.world.width - 340, 500, 'Lives : ', { fontSize: '20px Arial', fill: 'white' });
@@ -116,8 +115,8 @@
 			pacman.anchor.setTo(0.5, 0.5);
 			pacman.angle = 90;
 			pacman.alpha = 0.4;
-	
-           
+		    }
+	   
 	
 	},
         checkKeys: function () {
@@ -212,7 +211,6 @@
         eatDot: function (pacman, dot) {
             dot.kill();
             
-             
             
             this.score+=5;
             this.scoreText.text= 'Score: ' + this.score;
